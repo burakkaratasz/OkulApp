@@ -83,7 +83,7 @@
             // lblNumara
             // 
             this.lblNumara.AutoSize = true;
-            this.lblNumara.Location = new System.Drawing.Point(38, 115);
+            this.lblNumara.Location = new System.Drawing.Point(29, 115);
             this.lblNumara.Name = "lblNumara";
             this.lblNumara.Size = new System.Drawing.Size(44, 13);
             this.lblNumara.TabIndex = 2;
@@ -92,7 +92,7 @@
             // lblSoyad
             // 
             this.lblSoyad.AutoSize = true;
-            this.lblSoyad.Location = new System.Drawing.Point(38, 89);
+            this.lblSoyad.Location = new System.Drawing.Point(29, 89);
             this.lblSoyad.Name = "lblSoyad";
             this.lblSoyad.Size = new System.Drawing.Size(37, 13);
             this.lblSoyad.TabIndex = 1;
@@ -101,7 +101,7 @@
             // lblAd
             // 
             this.lblAd.AutoSize = true;
-            this.lblAd.Location = new System.Drawing.Point(38, 63);
+            this.lblAd.Location = new System.Drawing.Point(29, 56);
             this.lblAd.Name = "lblAd";
             this.lblAd.Size = new System.Drawing.Size(20, 13);
             this.lblAd.TabIndex = 0;
@@ -120,7 +120,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // frmOgrKayit
             // 

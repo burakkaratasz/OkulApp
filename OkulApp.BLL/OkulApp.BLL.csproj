@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OkulApp.DAL\OkulApp.DAL.csproj" />
     <ProjectReference Include="..\OkulApp.MODEL\OkulApp.MODEL.csproj" />
   </ItemGroup>

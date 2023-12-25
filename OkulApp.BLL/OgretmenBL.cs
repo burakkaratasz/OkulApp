@@ -19,5 +19,15 @@ namespace OkulApp.BLL
             };
             return hlp.ExecuteNonQuery("Insert into tblOgretmenler values(@Ad,@Soyad,@TcNo)", p) > 0;
         }
+
+        public bool OgretmenSil(Ogretmen OgretmenId)
+        {
+            var hlp = new Helper();
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("@OgretmenId", OgretmenId)
+            };
+            return hlp.ExecuteNonQuery("Delete FROM tblOgretmenler WHERE OgretmenId = @OgretmenId", p) > 0;
+        }
     }
 }
