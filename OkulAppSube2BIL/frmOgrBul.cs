@@ -25,20 +25,41 @@ namespace OkulAppSube2BIL
 
         private void btnAra_Click(object sender, EventArgs e)
         {
-            OgrenciBL obl = new OgrenciBL();
-            Ogrenci ogr = obl.OgrenciBul(txtNumara.Text.Trim());
+            try
+            {
+                OgrenciBL obl = new OgrenciBL();
+                Ogrenci ogr = obl.OgrenciBul(txtNumara.Text.Trim());
 
-            if (ogr != null )
-            {
-                frm.txtAd.Text = ogr.Ad;
-                frm.txtSoyad.Text = ogr.Soyad;
-                frm.txtNumara.Text = ogr.Numara;
-                frm.Ogrenciid = ogr.Ogrenciid;
+                if (ogr != null)
+                {
+                    frm.txtAd.Text = ogr.Ad;
+                    frm.txtSoyad.Text = ogr.Soyad;
+                    frm.txtNumara.Text = ogr.Numara;
+                    frm.Ogrenciid = ogr.Ogrenciid;
+
+                    frm.btnGuncelle.Enabled = true;
+                    frm.btnSil.Enabled = true;
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Öğrenci Bulunamadı!!");
+                    frm.btnGuncelle.Enabled = false;
+                    frm.btnSil.Enabled = false;
+                }
             }
-            else
+            catch (SqlException sqlEx)
             {
-                MessageBox.Show("Öğrenci Bulunamadı!!");
+                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
+
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
+
+            }
+
         }
     }
 }

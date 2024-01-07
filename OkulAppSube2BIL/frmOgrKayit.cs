@@ -46,6 +46,11 @@ namespace OkulAppSube2BIL
                 throw;
                 MessageBox.Show("Bilinmeyen Hata!!");
             }
+
+            txtAd.Text = "";
+            txtSoyad.Text = "";
+            txtNumara.Text = "";
+
         }
 
         private void frmOgrKayit_Load(object sender, EventArgs e)
@@ -55,21 +60,70 @@ namespace OkulAppSube2BIL
 
         private void btnBul_Click(object sender, EventArgs e)
         {
-            var frm = new frmOgrBul(this);
-            frm.Show();
+            try
+            {
+                var frm = new frmOgrBul(this);
+                frm.Show();
+            }
+            catch (SqlException sqlEx)
+            {
+                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
+                
+            }
         }
 
-        private void btnSil_Click(object sender, EventArgs e)
+        public void btnSil_Click(object sender, EventArgs e)
         {
-            var obl = new OgrenciBL();
-            MessageBox.Show(obl.OgrenciSil(Ogrenciid) ? "Silme Başarılı" : "Silme Başarısız!");
+            try
+            {
+                var obl = new OgrenciBL();
+                MessageBox.Show(obl.OgrenciSil(Ogrenciid) ? "Silme Başarılı" : "Silme Başarısız!");
+
+                txtAd.Text = "";
+                txtSoyad.Text = "";
+                txtNumara.Text = "";
+            }
+            catch (SqlException sqlEx)
+            {
+                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
+
+            }
+
         }
 
-        private void btnGuncelle_Click(object sender, EventArgs e)
+        public void btnGuncelle_Click(object sender, EventArgs e)
         {
-            var obl = new OgrenciBL();
-            MessageBox.Show(obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), Ogrenciid = Ogrenciid}) 
-            ? "Güncelleme Başarılı" : "Güncelleme Başarısız!" );
+            try
+            {
+                var obl = new OgrenciBL();
+                MessageBox.Show(obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), Ogrenciid = Ogrenciid })
+                ? "Güncelleme Başarılı" : "Güncelleme Başarısız!");
+
+                txtAd.Text = "";
+                txtSoyad.Text = "";
+                txtNumara.Text = "";
+            }
+            catch (SqlException sqlEx)
+            {
+                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
+
+            }
+
         }
     }
 
