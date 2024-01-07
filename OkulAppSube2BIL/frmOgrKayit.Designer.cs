@@ -38,6 +38,9 @@
             this.lblAd = new System.Windows.Forms.Label();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnBul = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
             this.grpOgrenci.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +104,7 @@
             // lblAd
             // 
             this.lblAd.AutoSize = true;
-            this.lblAd.Location = new System.Drawing.Point(29, 56);
+            this.lblAd.Location = new System.Drawing.Point(29, 59);
             this.lblAd.Name = "lblAd";
             this.lblAd.Size = new System.Drawing.Size(20, 13);
             this.lblAd.TabIndex = 0;
@@ -122,11 +125,44 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnBul
+            // 
+            this.btnBul.Location = new System.Drawing.Point(281, 37);
+            this.btnBul.Name = "btnBul";
+            this.btnBul.Size = new System.Drawing.Size(75, 23);
+            this.btnBul.TabIndex = 7;
+            this.btnBul.Text = "BUL";
+            this.btnBul.UseVisualStyleBackColor = true;
+            this.btnBul.Click += new System.EventHandler(this.btnBul_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.Location = new System.Drawing.Point(281, 78);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(75, 23);
+            this.btnSil.TabIndex = 8;
+            this.btnSil.Text = "SİL";
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.Location = new System.Drawing.Point(281, 114);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
+            this.btnGuncelle.TabIndex = 9;
+            this.btnGuncelle.Text = "GÜNCELLE";
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
             // frmOgrKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 259);
+            this.ClientSize = new System.Drawing.Size(378, 259);
+            this.Controls.Add(this.btnGuncelle);
+            this.Controls.Add(this.btnSil);
+            this.Controls.Add(this.btnBul);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.grpOgrenci);
             this.Name = "frmOgrKayit";
@@ -141,14 +177,17 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpOgrenci;
-        private System.Windows.Forms.TextBox txtNumara;
-        private System.Windows.Forms.TextBox txtSoyad;
-        private System.Windows.Forms.TextBox txtAd;
         private System.Windows.Forms.Label lblNumara;
         private System.Windows.Forms.Label lblSoyad;
         private System.Windows.Forms.Label lblAd;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnBul;
+        private System.Windows.Forms.Button btnSil;
+        public System.Windows.Forms.TextBox txtNumara;
+        public System.Windows.Forms.TextBox txtSoyad;
+        public System.Windows.Forms.TextBox txtAd;
+        private System.Windows.Forms.Button btnGuncelle;
     }
 }
 

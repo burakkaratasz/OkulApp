@@ -15,6 +15,7 @@ namespace OkulAppSube2BIL
 {
     public partial class frmOgrKayit : Form
     {
+        public int Ogrenciid { get; set; }
         public frmOgrKayit()
         {
             InitializeComponent();
@@ -50,6 +51,25 @@ namespace OkulAppSube2BIL
         private void frmOgrKayit_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBul_Click(object sender, EventArgs e)
+        {
+            var frm = new frmOgrBul(this);
+            frm.Show();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            var obl = new OgrenciBL();
+            MessageBox.Show(obl.OgrenciSil(Ogrenciid) ? "Silme Başarılı" : "Silme Başarısız!");
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            var obl = new OgrenciBL();
+            MessageBox.Show(obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), Ogrenciid = Ogrenciid}) 
+            ? "Güncelleme Başarılı" : "Güncelleme Başarısız!" );
         }
     }
 
