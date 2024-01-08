@@ -9,11 +9,11 @@ namespace OkulApp.BLL
 {
     public class OgrenciBL
     {
-        Helper helperInstance;
-        static readonly object lockObject = new object();
+        Helper helperInstance; //helper sınıfından örnek bir nesne tanımlanır
+        static readonly object lockObject = new object(); //güvenli erişim sağlar
 
-        // Singleton tasarım deseni ile Helper örneği alınır. bir sınıftan yalnızca bir nesne üretme ve diğer sınıfların erişimini sağlama.
-        Helper HelperInstance
+        // Singleton tasarım deseni ile bir sınıftan yalnızca bir nesne üretme ve diğer sınıfların erişimini sağlama.
+        Helper HelperInstance //property 
         {
             get
             {
@@ -43,7 +43,7 @@ namespace OkulApp.BLL
                 new SqlParameter("@Soyad",ogr.Soyad),
                 new SqlParameter("@Numara",ogr.Numara)
                 };
-                return HelperInstance.ExecuteNonQuery("Insert into tblOgrenciler values(@Ad,@Soyad,@Numara)", p) > 0;
+                return HelperInstance.ExecuteNonQuery("Insert into tblOgrenciler values(@Ad,@Soyad,@Numara)", p) > 0; //sorgu sonucu etkilenen satır sayısı 0 dan büyükse true döner
             }
             catch (SqlException sqlEx)
             {

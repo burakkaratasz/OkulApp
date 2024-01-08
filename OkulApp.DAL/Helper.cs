@@ -11,7 +11,7 @@ namespace OkulApp.DAL
         SqlCommand cmd = null;
 
         string cstr = ConfigurationManager.ConnectionStrings["cstr"].ConnectionString;
-        bool disposed = false;
+        bool disposed = false; //dispose metodunu birden fazla çağırmamak için kontrol nesnesi
 
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p = null)
         {
@@ -47,18 +47,31 @@ namespace OkulApp.DAL
         }
 
         public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p = null)
-        {
-            cn = new SqlConnection(cstr);
-            cmd = new SqlCommand(cmdtext, cn);
-            if (p != null)
+        {            
+            try
             {
-                cmd.Parameters.AddRange(p);
+                cn = new SqlConnection(cstr);
+                cmd = new SqlCommand(cmdtext, cn);
+                if (p != null) //parametre olup olmadığını kontrol eder
+                {
+                    cmd.Parameters.AddRange(p);
+                }
+                cn.Open();
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            cn.Open();
-            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            catch (SqlException sqlEx)
+            {
+                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
+                throw;
+            }
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing) //miras alan sınıflar tarafından kullanılabilir ve override edilebilir.
         {
             if (!disposed) //daha önce dispose edilip edilmediğini kontrol eder
             {
@@ -87,7 +100,7 @@ namespace OkulApp.DAL
         public void Dispose()
         {
             Dispose(true); 
-            GC.SuppressFinalize(this); //finalizer metodunun çağrılmasını durdurur
+            GC.SuppressFinalize(this); //finalizer metodunun çağrılmasını durdurur. garbage collector tarafından otomatik temizlenmesine gerek kalmaz.
         }
         
     }
