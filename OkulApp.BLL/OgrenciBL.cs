@@ -79,12 +79,10 @@ namespace OkulApp.BLL
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
                 throw;
             }
 
@@ -99,12 +97,10 @@ namespace OkulApp.BLL
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
                 throw;
             }
 
@@ -123,12 +119,10 @@ namespace OkulApp.BLL
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
                 throw;
             }
 

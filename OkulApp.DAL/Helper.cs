@@ -32,12 +32,10 @@ namespace OkulApp.DAL
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
                 throw;
             }
             finally
@@ -61,12 +59,10 @@ namespace OkulApp.DAL
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("Veritabanı Hatası: " + sqlEx.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Bilinmeyen Hata: " + ex.Message);
                 throw;
             }
         }
