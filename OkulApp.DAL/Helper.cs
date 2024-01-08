@@ -38,10 +38,7 @@ namespace OkulApp.DAL
             {
                 throw;
             }
-            finally
-            {
-                Dispose();
-            }
+            
         }
 
         public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p = null)
@@ -65,6 +62,7 @@ namespace OkulApp.DAL
             {
                 throw;
             }
+
         }
 
         protected virtual void Dispose(bool disposing) //miras alan sınıflar tarafından kullanılabilir ve override edilebilir.
